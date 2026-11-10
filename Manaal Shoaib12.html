@@ -1,0 +1,845 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The TIPS Career Builders</title><style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #24364b;
+    line-height: 1.6;
+}
+
+:root {
+    --blue: #0756b5;
+    --dark: #09264b;
+    --light: #eef6ff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+header {
+    background: white;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px #0001;
+}
+
+.logo {
+    color: var(--blue);
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.logo span {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+.menu {
+    display: none;
+    font-size: 27px;
+    cursor: pointer;
+    color: var(--blue);
+}
+
+.hero {
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    padding: 70px 9%;
+    background:
+    linear-gradient(90deg, #061c3deF, #0756b5a8),
+    url("https://images.unsplash.com/photo-1562774053-701939374585?w=1800");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 65px);
+    line-height: 1.15;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #8ecaff;
+}
+
+.hero p {
+    font-size: 17px;
+    margin-bottom: 30px;
+    color: #e1edff;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    padding: 13px 24px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--dark);
+}
+
+.stats {
+    background: var(--light);
+    padding: 35px 8%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    text-align: center;
+    gap: 20px;
+}
+
+.stat h2 {
+    color: var(--blue);
+    font-size: 30px;
+}
+
+.stat p {
+    color: #64748b;
+}
+
+section {
+    padding: 80px 9%;
+    scroll-margin-top: 85px;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.heading h2 {
+    color: var(--dark);
+    font-size: 35px;
+}
+
+.heading p {
+    color: #718096;
+    margin-top: 10px;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.about h2 {
+    color: var(--dark);
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.about p {
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.mission {
+    background: var(--light);
+    border-left: 4px solid var(--blue);
+    padding: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: var(--dark);
+    margin-top: 20px;
+}
+
+.programs, .facilities {
+    background: #f5f9ff;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 13px;
+    border: 1px solid #e5edf7;
+    box-shadow: 0 5px 20px #1234560b;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px #0756b520;
+}
+
+.card .icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #718096;
+    font-size: 14px;
+}
+
+.campus .card {
+    border-top: 4px solid var(--blue);
+}
+
+.leadership .card {
+    text-align: center;
+}
+
+.initial {
+    width: 75px;
+    height: 75px;
+    background: var(--blue);
+    color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+.role {
+    color: var(--blue) !important;
+    font-weight: bold;
+}
+
+.admission {
+    background: linear-gradient(120deg, #0756b5, #09264b);
+    text-align: center;
+    color: white;
+}
+
+.admission h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.admission p {
+    color: #dceaff;
+    margin-bottom: 25px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.contact {
+    background: var(--light);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+.contact-info h3 {
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin: 15px 0;
+    color: #64748b;
+}
+
+form {
+    background: white;
+    padding: 28px;
+    border-radius: 13px;
+    box-shadow: 0 5px 20px #1234560b;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 14px;
+    border: 1px solid #dce5f0;
+    border-radius: 7px;
+    font: inherit;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.socials a {
+    color: #9dcaff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer {
+    background: #071d3a;
+    color: white;
+    text-align: center;
+    padding: 40px 8%;
+}
+
+footer p {
+    color: #b4c5dc;
+    margin-top: 12px;
+}
+
+@media(max-width:850px) {
+    nav {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .about, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:550px) {
+    .cards, .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .hero {
+        padding: 50px 7%;
+    }
+
+    section {
+        padding: 60px 7%;
+    }
+}
+</style></head><body><!-- NAVIGATION --><header>
+    <div class="logo">
+        THE TIPS
+        <span>CAREER BUILDERS</span>
+    </div><div class="menu" onclick="toggleMenu()">☰</div>
+
+<nav id="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#campuses">Campuses</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+</header><!-- HOME --><section class="hero" id="home">
+    <div class="hero-content">
+        <p>WELCOME TO THE TIPS CAREER BUILDERS</p>    <h1>
+        Building Careers.<br>
+        <span>Shaping Futures.</span>
+    </h1>
+
+    <p>
+        Education is the foundation of success.
+        Discover your potential, develop your abilities
+        and prepare yourself for a brighter future.
+    </p>
+
+    <a href="#about" class="btn">Discover More →</a>
+</div>
+
+</section><!-- STATISTICS --><div class="stats">
+    <div class="stat">
+        <h2>1998</h2>
+        <p>Established</p>
+    </div><div class="stat">
+    <h2>07</h2>
+    <p>Programs</p>
+</div>
+
+<div class="stat">
+    <h2>03</h2>
+    <p>Campuses</p>
+</div>
+
+<div class="stat">
+    <h2>FSD</h2>
+    <p>Faisalabad</p>
+</div>
+
+</div><!-- ABOUT --><section id="about">
+    <div class="about">    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1000"
+    alt="College students">
+
+    <div>
+        <h2>About Our College</h2>
+
+        <p>
+            The TIPS Career Builders was established in 1998
+            with a commitment to education and student development.
+        </p>
+
+        <p>
+            We aim to provide students with opportunities
+            to build knowledge, confidence and practical skills.
+            Our goal is to prepare students for a successful future.
+        </p>
+
+        <div class="mission">
+            OUR MISSION
+
+            <br><br>
+
+            "To transform students into highly successful,
+            innovative, and capable professionals."
+        </div>
+    </div>
+
+</div>
+
+</section><!-- PROGRAMS --><section class="programs" id="programs"><div class="heading">
+    <h2>Our Academic Programs</h2>
+    <p>Choose your path towards success.</p>
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <div class="icon">💻</div>
+        <h3>ICS</h3>
+        <p>Intermediate in Computer Science.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🧬</div>
+        <h3>FSc Pre-Medical</h3>
+        <p>Explore biology, chemistry and physics.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">⚙️</div>
+        <h3>FSc Pre-Engineering</h3>
+        <p>Develop scientific and mathematical knowledge.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🖥️</div>
+        <h3>DIT</h3>
+        <p>Diploma in Information Technology.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📊</div>
+        <h3>I.Com</h3>
+        <p>Intermediate in Commerce.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📚</div>
+        <h3>FA</h3>
+        <p>Intermediate in Arts and Humanities.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🌐</div>
+        <h3>FA IT</h3>
+        <p>Arts and Information Technology studies.</p>
+    </div>
+
+</div>
+
+</section><!-- CAMPUSES --><section class="campus" id="campuses"><div class="heading">
+    <h2>Our Campuses</h2>
+    <p>Three campuses of The TIPS Career Builders.</p>
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <div class="icon">🏫</div>
+        <h3>D Campus</h3>
+        <p>
+            P-646-D, Peoples Colony No. 1,
+            Faisalabad.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">👩‍🎓</div>
+        <h3>Girls Campus</h3>
+        <p>
+            P-467-D/1 (or P-646-D),
+            Peoples Colony No. 1,
+            Faisalabad.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📍</div>
+        <h3>Canal Campus</h3>
+        <p>
+            P-30-B, Saeed Colony No. 2,
+            near Kashmir Bridge,
+            East Canal Road, Faisalabad.
+        </p>
+    </div>
+
+</div>
+
+</section><!-- FACILITIES --><section class="facilities" id="facilities"><div class="heading">
+    <h2>Our Facilities</h2>
+    <p>Supporting students with a learning-focused environment.</p>
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <div class="icon">💻</div>
+        <h3>Computer Laboratory</h3>
+        <p>Well-equipped computer lab for practical learning.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📚</div>
+        <h3>Library</h3>
+        <p>A place for reading, research and independent learning.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">✨</div>
+        <h3>Many More Facilities</h3>
+        <p>More facilities to support students and their education.</p>
+    </div>
+
+</div>
+
+</section><!-- LEADERSHIP --><section class="leadership" id="leadership"><div class="heading">
+    <h2>Our Leadership</h2>
+    <p>Meet the leadership team of The TIPS Career Builders.</p>
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <div class="initial">JS</div>
+        <h3>Junaid Subhani</h3>
+        <p class="role">Managing Director</p>
+    </div>
+
+    <div class="card">
+        <div class="initial">AJ</div>
+        <h3>Ahmad Jabbar</h3>
+        <p class="role">Director Academics</p>
+    </div>
+
+    <div class="card">
+        <div class="initial">MZ</div>
+        <h3>M. Zeeshan Abid</h3>
+        <p class="role">Director Student Affairs</p>
+    </div>
+
+</div>
+
+</section><!-- ADMISSIONS --><section class="admission">
+    <h2>Your Future Starts Here!</h2><p>
+    Take the first step towards your dreams.
+    Join The TIPS Career Builders and begin
+    your journey of learning and success.
+</p>
+
+<a href="#contact" class="btn"
+style="background:white;color:#0756b5">
+    Contact Us →
+</a>
+
+</section><!-- GALLERY --><section id="gallery"><div class="heading">
+    <h2>College Gallery</h2>
+    <p>A glimpse into education and campus life.</p>
+</div>
+
+
+
+<div class="gallery">
+
+
+   <img src="TIPS P1.jpeg" alt="TIPS College Image">
+   <img src="TIPS P2.jpeg" alt="TIPS College Image">
+   <img src="TIPS P3.jpeg" alt="TIPS College Image">
+   <img src="TIPS P4.jpeg" alt="TIPS College Image">
+   <img src="TIPS P5.jpeg" alt="TIPS College Image">
+   <img src="TIPS P6.jpeg" alt="TIPS College Image">
+   <img src="TIPS P7.jpeg" alt="TIPS College Image">
+   <img src="TIPS P8.jpeg" alt="TIPS College Image">
+   <img src="TIPS P9.jpeg" alt="TIPS College Image">
+   <img src="TIPS P10.jpeg" alt="TIPS College Image">
+   <img src="TIPS P11.jpeg" alt="TIPS College Image">
+   <img src="TIPS P12.jpeg" alt="TIPS College Image">
+   <img src="TIPS P13.jpeg" alt="TIPS College Image">
+   <img src="TIPS P14.jpeg" alt="TIPS College Image">
+   <img src="TIPS P15.jpeg" alt="TIPS College Image">
+   <img src="TIPS P16.jpeg" alt="TIPS College Image">
+   <img src="TIPS P17.jpeg" alt="TIPS College Image">
+   <img src="TIPS P18.jpeg" alt="TIPS College Image">
+  
+   <video width="300" controls>
+    <source src="TIPS V1.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+ 
+ <video width="300" controls>
+    <source src="TIPS V3.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+ <video width="300" controls>
+    <source src="TIPS V4.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+ <video width="300" controls>
+    <source src="TIPS V5.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+ <video width="300" controls>
+    <source src="TIPS V6.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+ <video width="300" controls>
+    <source src="TIPS V7.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+ <video width="300" controls>
+    <source src="TIPS V8.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+ <video width="300" controls>
+    <source src="TIPS V9.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+ <video width="300" controls>
+    <source src="TIPS V10.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+ <video width="300" controls>
+    <source src="TIPS V11.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+<video width="300" controls>
+    <source src="TIPS V2.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+</div>
+
+</section>
+
+</section><!-- CONTACT --><section class="contact" id="contact"><div class="heading">
+    <h2>Contact Us</h2>
+    <p>We would love to hear from you.</p>
+</div>
+
+<div class="contact-grid">
+
+    <div class="contact-info">
+
+        <h3>The TIPS Career Builders</h3>
+
+        <p>
+            📍 <b>Address:</b><br>
+            P 646-D, Peoples Colony No. 1,
+            Near Technical High School, Faisalabad.
+        </p>
+
+        <p>
+            ☎ <b>Telephone:</b><br>
+            <a href="tel:0418543826">041-8543826</a><br>
+            <a href="tel:0418544826">041-8544826</a>
+        </p>
+
+        <p>
+            📱 <b>Mobile:</b><br>
+            <a href="tel:+923008522017">+92 300 8522017</a>
+        </p>
+
+        <p>
+            🏫 <b>Campuses:</b><br>
+            D Campus, Girls Campus, Canal Campus
+        </p>
+
+    </div>
+
+    <form id="contactForm">
+
+        <h3 style="margin-bottom:15px;color:#09264b">
+            Send an Enquiry
+        </h3>
+
+        <input type="text" id="name"
+        placeholder="Your Name" required>
+
+        <input type="tel" id="phone"
+        placeholder="Your Phone Number" required>
+
+        <textarea id="message"
+        placeholder="Your Message" required></textarea>
+
+        <button class="btn" type="submit">
+            Send via WhatsApp →
+        </button>
+
+    </form>
+
+</div>
+
+</section><!-- FOOTER --><footer><h2>THE TIPS CAREER BUILDERS</h2>
+
+<p>Building Careers. Shaping Futures.</p>
+
+<p>Established in 1998 | Faisalabad, Pakistan</p>
+
+<div class="socials">
+
+    <a href="https://www.facebook.com/TipsCollegeOfficial/"
+    target="_blank">Facebook</a>
+
+    <a href="https://www.instagram.com/tipscollege_official/"
+    target="_blank">Instagram</a>
+
+    <a href="https://www.tiktok.com/@tipscollegeofficial"
+    target="_blank">TikTok</a>
+
+    <a href="https://www.youtube.com/@TipsCollegeOfficial"
+    target="_blank">YouTube</a>
+
+</div>
+
+<p style="margin-top:25px">
+    © <span id="year"></span> The TIPS Career Builders.
+    All Rights Reserved.
+</p>
+
+</footer><script>
+
+// Mobile Navigation
+
+function toggleMenu() {
+    document.getElementById("navbar")
+    .classList.toggle("active");
+}
+
+// Automatically update copyright year
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+// WhatsApp Contact Form
+
+document.getElementById("contactForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let message = document.getElementById("message").value;
+
+    let text = `Hello The TIPS Career Builders!
+Name: ${name}
+Phone: ${phone}
+Message: ${message}`;
+
+    let url = "https://wa.me/923008522017?text="
+    + encodeURIComponent(text);
+
+    window.open(url, "_blank");
+
+});
+
+</script></body>
+</html>
